@@ -1,0 +1,14 @@
+﻿[
+  {
+    "copy": true,
+    "inputs": [
+      "Assets/*"
+    ],
+    "output": "wwwroot/assets/@"
+  },
+  {
+    "generateSourceMaps": false,
+    "inputs": [ "Assets/site.scss" ],
+    "output": "wwwroot/css/site.css"
+  }
+]

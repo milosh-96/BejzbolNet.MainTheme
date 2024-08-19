@@ -1,0 +1,19 @@
+﻿@{
+    string path = Model.Content.PlayerInfoPart.PlayerInfoPart.PortraitPicture.Paths != null ? (string)Model.Content.PlayerInfoPart.PlayerInfoPart.PortraitPicture.Paths.First : "";
+    var imageUrl = "";
+    if (path != null)
+    {
+        imageUrl = Orchard.AssetUrl(path, 128, 128, OrchardCore.Media.Processing.ResizeMode.BoxPad);
+    }
+}
+<article class="article col">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            @await DisplayAsync(Model.Header)
+        </div>
+        <div class="col-12 col-md-4">
+            <img src="@imageUrl" alt="" />
+        </div>
+    </div>
+
+</article>

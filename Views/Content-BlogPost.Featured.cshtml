@@ -1,0 +1,19 @@
+﻿@{
+    var post = Model.ContentItem;
+    string featuredImage = post.Content.BlogPost.Image.Paths.First;
+}
+<article class="article--featured">
+    <div class="row">
+        <div class="picture col-12 col-md-4">
+            <img src="@Orchard.AssetUrl(featuredImage)" alt="@post.DisplayText" width="100%">
+        </div>
+        <div class="col-12 col-md-8">
+            <h2 style="font-size: 1rem;font-weight: bold;">@post.DisplayText</h2>
+
+            @await Orchard.MarkdownToHtmlAsync(
+                (string)post.Content.BlogPost.Excerpt.Markdown
+            )
+            <a display-for="@post" class="btn btn-secondary">Opširnije</a>
+        </div>
+    </div>
+</article>

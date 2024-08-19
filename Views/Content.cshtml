@@ -1,0 +1,30 @@
+﻿<section class="row">
+    <article class="article col-12 col-md-8">
+        @await DisplayAsync(Model.Header)
+        @if (Model.Meta != null)
+        {
+            <div class="article__metadata">
+                @await DisplayAsync(Model.Meta)
+            </div>
+        }
+@*         <h1>Slider</h1>
+ *@        <div class="article__content">
+            @await DisplayAsync(Model.Content)
+
+            </div>
+    </article>
+    <aside class="col-12 col-md-4">
+        <div class="sidebar">
+            @await RenderSectionAsync("PostSidebar", false)
+        </div>
+        <div class="ad">
+            @await RenderSectionAsync("AdSidebar", false)
+        </div>
+        <div class="sidebar">
+            @await RenderSectionAsync("GlobalSidebar", false)
+        </div>
+    </aside>
+    <!-- <aside class="banner col-12 col-md-4">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/17/14/athletes-1835893_960_720.jpg" width="100%" alt="">
+    </aside> -->
+</section>

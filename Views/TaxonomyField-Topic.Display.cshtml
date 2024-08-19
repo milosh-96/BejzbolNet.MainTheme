@@ -1,0 +1,16 @@
+﻿@model OrchardCore.Taxonomies.ViewModels.DisplayTaxonomyFieldTagsViewModel
+@using OrchardCore.Mvc.Utilities
+
+@{
+    var name = (Model.PartFieldDefinition.PartDefinition.Name + "-" + Model.PartFieldDefinition.Name).HtmlClassify();
+}
+
+<div class="field field-type-taxonomyfield field-display-mode-tags field-name-@name">
+    @foreach (var termId in Model.TermContentItemIds)
+    {
+        ContentItem term = await Orchard.GetTaxonomyTermAsync(Model.TaxonomyContentItemId,termId);
+        <span class="taxonomy-topic-term">
+            <a display-for="@term">@term.DisplayText</a>
+        </span>
+    }
+</div>

@@ -1,0 +1,30 @@
+﻿@{
+    string collectionId = Model.CollectionId;
+    var players = await Orchard.GetRecentContentItemsByContentTypeAsync("Player",20);
+    
+}
+
+<section id="players-carousel" class="splide" aria-labelledby="carousel-heading">
+    <div class="splide__track">
+        <ul class="splide__list">
+            @foreach(var item in players)
+            {
+                string link = item.Content.PlayerInfoPart.WikipediaPage.Url ?? "#";
+                string path = item.Content.PlayerInfoPart.PortraitPicture.Paths != null ? (string)item.Content.PlayerInfoPart.PortraitPicture.Paths.First : "";
+                var imageUrl = "";
+                if(path != null)
+                {
+                   imageUrl =  Orchard.AssetUrl(path, 128, 128, OrchardCore.Media.Processing.ResizeMode.BoxPad);
+
+                }
+                <li class="splide__slide text-center">
+                    <a href="@link" target="_blank">
+                        <img src="@imageUrl" alt="">
+                        <p>@item.DisplayText</p>
+                    </a>
+                </li>
+            }
+           
+        </ul>
+    </div>
+</section>

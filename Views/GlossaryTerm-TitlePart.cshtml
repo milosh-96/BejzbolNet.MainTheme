@@ -1,0 +1,12 @@
+@model OrchardCore.Title.ViewModels.TitlePartViewModel
+@{
+    string abbreviation = Model.ContentItem.Content.GlossaryTerm.Abbreviation.Text;
+    string titleRender = Model.Title;
+    if(!string.IsNullOrEmpty(abbreviation))
+    {
+        titleRender = $"{Model.Title} ({abbreviation})";
+    }
+}
+<h1>
+        @titleRender
+</h1>

@@ -1,0 +1,10 @@
+@model OrchardCore.Title.ViewModels.TitlePartViewModel
+@{
+    string link = Model.ContentItem.Content.PlayerInfoPart.WikipediaPage.Url ?? "#";
+
+}
+<h1>
+    <a href="@link" target="_blank">
+        @Model.TitlePart.Title
+    </a>
+</h1>

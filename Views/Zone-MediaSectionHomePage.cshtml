@@ -1,0 +1,20 @@
+<section id="image-carousel" class="splide" aria-labelledby="carousel-heading">
+
+    <div class="splide__track">
+        <ul class="splide__list">
+            @foreach (var item in Model.Items)
+            {
+                <li class="splide__slide text-center">
+                    @await DisplayAsync(item)
+                </li>
+
+            }
+        </ul>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        new Splide('#image-carousel').mount();
+    });
+
+</script>

@@ -1,0 +1,7 @@
+﻿@if(Model.Markdown != null)
+{
+    <h3>@T["Primeri"]</h3>
+    <p>
+        @await Orchard.MarkdownToHtmlAsync((string)Model.Markdown)
+    </p>
+}

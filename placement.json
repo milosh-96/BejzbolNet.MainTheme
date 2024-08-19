@@ -1,0 +1,104 @@
+﻿{
+  "TitlePart": [
+    {
+      "contentType": [ "ShortPost" ],
+      "place": "-" // - is to hide
+    },
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "place": "Header:2"
+    }
+  ],
+  "ContentPickerField": [
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-RelatedTerms",
+      "place": "Content:54"
+    }
+  ],
+  "TaxonomyField_Display__Tags": [
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-Tags-TaxonomyField_Display__Tags",
+      "place": "Content:65"
+    },
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": " GlossaryTerm-Topic-TaxonomyField_Display__Tags",
+      "place": "Header:1"
+    }
+  ],
+  "TaxonomyField_Display__Topic": [
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": " GlossaryTerm-Topic-TaxonomyField_Display__Tags",
+      "place": "Header:1"
+    }
+  ],
+  "MediaField": [
+    {
+      "contentType": [ "Team" ],
+      "differentiator": "Team-Logo",
+      "place": "Header:0"
+    },
+    {
+      "contentType": [ "Team" ],
+      "differentiator": "Team-Logo",
+      "place": "-",
+      "displayType": "Summary"
+    },
+    {
+      "contentType": [ "BlogPost" ],
+      "differentiator": "BlogPost-Image",
+      "place": "Content:1"
+    }
+  ],
+  "TextField": [
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-LocalizedName",
+      "place": "-"
+    },
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-Abbreviation",
+      "place": "Content:13"
+    },
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-Pronunciation",
+      "place": "Content:11"
+    },
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-OriginalName",
+      "place": "Content:12"
+    }
+  ],
+  "MarkdownField": [
+    {
+      "contentType": [ "GlossaryTerm" ],
+      "differentiator": "GlossaryTerm-Examples",
+      "place": "Content:10"
+    },
+    {
+      "contentType": [ "BlogPost" ],
+      "differentiator": "BlogPost-Excerpt",
+      "place": "-"
+    }
+  ],
+  "MarkdownBodyPart": [
+    {
+      "contentType": [ "BlogPost" ],
+      "place": "Content:2"
+    }
+  ],
+  "ContentPart": [
+    {
+      "contentType": [ "Player" ],
+      "differentiator": "PlayerInfoPart",
+      "place": "Content:0",
+      "displayType": "Detail"
+    }
+  ]
+}

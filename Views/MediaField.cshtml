@@ -1,0 +1,31 @@
+@model OrchardCore.Media.ViewModels.DisplayMediaFieldViewModel
+@using OrchardCore.ContentManagement.Metadata.Models
+@using OrchardCore.Mvc.Utilities
+@{
+    var paths = Model.Paths ?? Array.Empty<string>();
+    var mediaTexts = Model.Field?.MediaTexts ?? Array.Empty<string>();
+    var name = (Model.PartFieldDefinition.PartDefinition.Name + "-" + Model.PartFieldDefinition.Name).HtmlClassify();
+}
+@if (paths.Any())
+{
+    <div class="field field-type-mediafield field-name-@name">
+        @for (int i = 0; i < paths.Length; i++)
+        {
+            var path = paths[i];
+            var url = Orchard.AssetUrl(path);
+            var text = !string.IsNullOrEmpty(mediaTexts.ElementAtOrDefault(i)) ? mediaTexts[i] : path;
+
+            if (Orchard.IsImageFile(path))
+            {
+                <figure>
+                    <img src="@url" alt="@text">
+                    <figcaption>@text</figcaption>
+                </figure>
+            }
+            else
+            {
+                <a href="@url">@text</a>
+            }
+        }
+    </div>
+}

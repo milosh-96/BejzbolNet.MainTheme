@@ -1,0 +1,32 @@
+﻿@{
+    // By using a tag builder, sub items can alter the
+    // menu element. Note how Display is called on the menu
+    // items before the tag is actually rendered.
+
+    TagBuilder tag = Tag(Model, "ul");
+    tag.AddCssClass("navbar-nav");
+    foreach (var item in Model.Items)
+    {
+        tag.InnerHtml.AppendHtml(await DisplayAsync(item));
+    }
+}
+@tag 
+
+
+@* <ul>
+    <li><a href="#" class="secondary">Naslovna</a></li>
+    <li>
+        <details class="dropdown">
+            <summary>
+                Ostale stranice
+            </summary>
+            <ul dir="rtl">
+                <li><a href="#">Osnove</a></li>
+                <li><a href="#">Bejzbol rečnik</a></li>
+                <li><a href="#">Bejzbol teren</a></li>
+                <li><a href="#">MLB timovi</a></li>
+                <li><a href="#">O sajtu</a></li>
+            </ul>
+        </details>
+    </li>
+</ul> *@

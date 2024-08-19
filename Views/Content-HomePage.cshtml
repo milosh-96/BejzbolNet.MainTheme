@@ -1,0 +1,92 @@
+﻿@{
+    string featuredPostId = Model.ContentItem.Content.HomePage.FeaturedPost.ContentItemIds.First;
+    var featuredPost = await Orchard.GetContentItemByIdAsync(featuredPostId,true);
+}
+<section>
+    <section class="row">
+        <div class="col">
+            @await Orchard.DisplayAsync(featuredPost,"Featured")
+        </div>
+        <!-- <aside class="banner col-12 col-md-4">
+            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/14/athletes-1835893_960_720.jpg" width="100%" alt="">
+        </aside> -->
+    </section>
+
+    <section class="row">
+        <div class="ad">
+            @await RenderSectionAsync("HomeHorizontalAdSidebar", false)
+        </div>
+
+    </section>
+
+    <section class="row">
+    </section>
+
+    <section class="row">
+        @await RenderSectionAsync("TopicsHomePage",false)
+        @* <section class="col-12 col-md-4">
+            <shape 
+                    maxItems="5"
+                taxonomyId="4rt5ag9fk954ev4bagn89888c2"
+                   topicId="4yahg7jaf0syp1d6q2eykqvp5x"
+                   Type="GlossaryTopicShape"></shape>
+        </section>
+        <section class="col-12 col-md-4">
+            <shape
+                    maxItems="5"
+                taxonomyId="4rt5ag9fk954ev4bagn89888c2"
+                   topicId="4gdk0zwmgytq96qpgzqk4b5mwh"
+                   Type="GlossaryTopicShape"></shape>
+                 
+        </section>
+        <section class="col-12 col-md-4">
+            <shape 
+                maxItems="5"
+                taxonomyId="4rt5ag9fk954ev4bagn89888c2"
+                topicId="49k2qtxp6derd40t57914c9cwr" 
+                Type="GlossaryTopicShape"></shape>
+        </section> *@
+    </section>
+
+
+    <section class="row">
+        <section class="col-12 col-md-8">
+            <div class="section__section-heading">
+                <h3>
+                    @T["Video galerija"]
+                </h3>
+            </div>
+            <section>
+                @await RenderSectionAsync("MediaSectionHomePage", false)
+            </section>
+
+        </section>
+        <section class="col-12 col-md-4">
+            <section class="row">
+                @await RenderSectionAsync("RightSidebarHomePage", false)
+            </section>
+        </section>
+    </section>
+
+    <section>
+        <div class="section__section-heading">
+            <h3>
+                @T["Bejzbol legende"]
+            </h3>
+        </div>
+        
+        <shape Type="PlayersCollectionSliderShape"
+               collectionId="4732a7k8ygx67rmr2907caxf44"></shape>
+
+    </section>
+    <section>
+        <div class="section__section-heading">
+            <h3>
+                @T["Popularni bejzbol timovi"]
+            </h3>
+        </div>
+        
+        <shape Type="TeamsSliderShape"
+               taxonomyItemId="4bh0rga01qc1rrgx4rrqqwgbc3"></shape>
+    </section>
+</section>

@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="compilerconfig.json" />
+    <EmbeddedResource Remove="compilerconfig.json.defaults" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\site.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.3" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.ContentLocalization" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.ContentManagement.Display" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Layers" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Lists" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Localization" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Localization.Core" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Markdown" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Media" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Queries" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Taxonomies" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Title" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Menu" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Theme.Targets" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Contents" Version="1.8.3" />
+    <PackageReference Include="OrchardCore.Contents.TagHelpers" Version="1.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Content-GlossaryTerm.Summary.cshtml">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Localization\" />
+  </ItemGroup>
+
+</Project>

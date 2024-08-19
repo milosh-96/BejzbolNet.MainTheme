@@ -1,0 +1,40 @@
+@model OrchardCore.Lists.ViewModels.ListPartViewModel
+
+@{
+    var alphanumerics = new string[]
+       {
+            "0 - 9","A","B","C","D","E","F","G","H","I","J","K","L",
+            "M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+       };
+    var items = Model.ContentItems;
+    var sorted = items.Select(x => x)
+                        .GroupBy(x => x.DisplayText.Substring(0, 1).ToUpper(), (alphabet, subList) => new { Alphabet = alphabet, SubList = subList.OrderBy(x => x.DisplayText).ToList() })
+                .OrderBy(x => x.Alphabet);
+}
+<section>
+       @if(Model.ContentItems.Any())
+        {
+            <div class="row">
+            @foreach (var letter in sorted)
+            {
+                <section class="col col-12 col-md-4">
+                    <h3>@letter.Alphabet</h3>
+                    <div class="row">
+                        @foreach (ContentItem item in letter.SubList)
+                        {
+                            <div class="col col-12">
+                                @await Orchard.DisplayAsync(item, "Summary")
+                            </div>
+
+                        }
+                    </div>
+                </section>
+            }
+            </div>
+           
+        }
+        else
+        {
+            @T["Trenutno nema stavki."]
+        }
+</section>

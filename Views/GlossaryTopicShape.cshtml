@@ -1,0 +1,38 @@
+﻿@{
+    int maxItems = Int32.Parse(Model.MaxItems);
+    string taxonomyId = Model.TaxonomyId;
+    string topicId = Model.TopicId;
+    ContentItem topic = await Orchard.GetTaxonomyTermAsync(taxonomyId,topicId);
+    var items = await Orchard.QueryCategorizedContentItemsAsync(
+        x => x.Where(y => y.TermContentItemId == topicId).Take(maxItems)
+    );
+}
+<section>
+    <div class="section__section-heading">
+        <h3>@topic.DisplayText</h3>
+    </div>
+    <ul>
+       @if(items == null || items.Count() == 0)
+        {
+            <li>@T["Trenutno nema stavki."]</li>
+        }
+        else
+        {
+            @foreach (var item in items)
+            {
+                string abbreviation = item.Content.GlossaryTerm.Abbreviation.Text;
+                string titleRender = item.DisplayText;
+                if (!string.IsNullOrEmpty(abbreviation))
+                {
+                    titleRender = $"{item.DisplayText} ({abbreviation})";
+                }
+                <li>
+                    <a display-for="item">@titleRender</a>
+                </li>
+            }
+        }
+    </ul>
+    <div style="text-align: right;">
+        <a display-for="topic">@T["Sve stavke"]</a>
+    </div>
+</section>
