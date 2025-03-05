@@ -2,7 +2,7 @@
   "TitlePart": [
     {
       "contentType": [ "ShortPost" ],
-      "place": "-" // - is to hide
+      "place": "Header:1" // - is to hide
     },
     {
       "contentType": [ "GlossaryTerm" ],

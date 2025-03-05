@@ -10,7 +10,7 @@
             @foreach(var item in players)
             {
                 string link = item.Content.PlayerInfoPart.WikipediaPage.Url ?? "#";
-                string path = item.Content.PlayerInfoPart.PortraitPicture.Paths != null ? (string)item.Content.PlayerInfoPart.PortraitPicture.Paths.First : "";
+                string path = item.Content.PlayerInfoPart.PortraitPicture.Paths != null ? (string)item.Content.PlayerInfoPart.PortraitPicture.Paths[0] : "";
                 var imageUrl = "";
                 if(path != null)
                 {

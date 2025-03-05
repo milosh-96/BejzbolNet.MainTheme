@@ -46,6 +46,7 @@
 .header__language-switcher {
   font-weight: lighter;
   color: inherit;
+  list-style: none;
 }
 
 .header__top-logo img {

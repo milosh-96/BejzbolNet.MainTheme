@@ -9,8 +9,11 @@
     @foreach (var termId in Model.TermContentItemIds)
     {
         ContentItem term = await Orchard.GetTaxonomyTermAsync(Model.TaxonomyContentItemId,termId);
-        <span class="taxonomy-tag-term">
-            <a display-for="@term">@term.DisplayText</a>
-        </span>
+        @if(term != null)
+        {
+            <span class="taxonomy-tag-term">
+                <a display-for="@term">@term.DisplayText</a>
+            </span>
+        }
     }
 </div>

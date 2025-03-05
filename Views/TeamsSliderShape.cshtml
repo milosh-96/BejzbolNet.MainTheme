@@ -1,10 +1,10 @@
-﻿@using System.Text.Json.Nodes
-@using System.Linq;
+﻿@using System.Linq;
 @using Newtonsoft.Json.Linq
+@using System.Text.Json.Dynamic
 @{
     string taxonomyItemId = Model.TaxonomyItemId;
     ContentItem taxItem = await Orchard.GetContentItemByIdAsync(taxonomyItemId);
-    JArray terms = (JArray)taxItem.Content.TaxonomyPart.Terms;
+    JsonDynamicArray terms = taxItem.Content.TaxonomyPart.Terms;
     
 }
 <section id="teams-carousel" class="splide" aria-labelledby="carousel-heading">
@@ -13,7 +13,7 @@
             @foreach(var item in terms.ToObject<List<ContentItem>>())
             {
                 string link = item.Content.Team.WikipediaPage != null ? item.Content.Team.WikipediaPage.Url ?? "#" : "#";
-                string path = item.Content.Team.Logo.Paths != null ? (string)item.Content.Team.Logo.Paths.First : "";
+                string path = item.Content.Team.Logo.Paths != null ? (string)item.Content.Team.Logo.Paths[0] : "";
                 var imageUrl = "";
                 if(path != null)
                 {

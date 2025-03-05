@@ -1,5 +1,5 @@
 ﻿@{
-    string path = Model.ContentItem.Content.Team.Logo.Paths != null ? (string)Model.ContentItem.Content.Team.Logo.Paths.First : "";
+    string path = Model.ContentItem.Content.Team.Logo.Paths != null ? (string)Model.ContentItem.Content.Team.Logo.Paths[0] : "";
     var imageUrl = "";
     if (path != null)
     {

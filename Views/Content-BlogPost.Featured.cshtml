@@ -1,6 +1,6 @@
 ﻿@{
     var post = Model.ContentItem;
-    string featuredImage = post.Content.BlogPost.Image.Paths.First;
+    string featuredImage = post.Content.BlogPost.Image.Paths[0];
 }
 <article class="article--featured">
     <div class="row">

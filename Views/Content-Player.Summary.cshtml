@@ -1,5 +1,5 @@
 ﻿@{
-    string path = Model.Content.PlayerInfoPart.PlayerInfoPart.PortraitPicture.Paths != null ? (string)Model.Content.PlayerInfoPart.PlayerInfoPart.PortraitPicture.Paths.First : "";
+    string path = Model.Content.PlayerInfoPart.PlayerInfoPart.PortraitPicture.Paths != null ? (string)Model.Content.PlayerInfoPart.PlayerInfoPart.PortraitPicture.Paths[0] : "";
     var imageUrl = "";
     if (path != null)
     {

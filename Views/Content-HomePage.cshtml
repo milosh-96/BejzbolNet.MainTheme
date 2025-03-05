@@ -1,6 +1,6 @@
 ﻿@{
-    string featuredPostId = Model.ContentItem.Content.HomePage.FeaturedPost.ContentItemIds.First;
-    var featuredPost = await Orchard.GetContentItemByIdAsync(featuredPostId,true);
+    string featuredPostId = Model.ContentItem.Content.HomePage.FeaturedPost.ContentItemIds[0];
+    var featuredPost = await Orchard.GetContentItemByIdAsync(featuredPostId,VersionOptions.Published);
 }
 <section>
     <section class="row">
@@ -20,32 +20,25 @@
     </section>
 
     <section class="row">
+        @await RenderSectionAsync("FeaturedPostBanner", false)
+    </section>
+    
+    <section class="row">
+        @await RenderSectionAsync("TopicsHomePage", false)
     </section>
 
     <section class="row">
-        @await RenderSectionAsync("TopicsHomePage",false)
-        @* <section class="col-12 col-md-4">
-            <shape 
-                    maxItems="5"
-                taxonomyId="4rt5ag9fk954ev4bagn89888c2"
-                   topicId="4yahg7jaf0syp1d6q2eykqvp5x"
-                   Type="GlossaryTopicShape"></shape>
-        </section>
-        <section class="col-12 col-md-4">
-            <shape
-                    maxItems="5"
-                taxonomyId="4rt5ag9fk954ev4bagn89888c2"
-                   topicId="4gdk0zwmgytq96qpgzqk4b5mwh"
-                   Type="GlossaryTopicShape"></shape>
-                 
-        </section>
-        <section class="col-12 col-md-4">
-            <shape 
-                maxItems="5"
-                taxonomyId="4rt5ag9fk954ev4bagn89888c2"
-                topicId="49k2qtxp6derd40t57914c9cwr" 
-                Type="GlossaryTopicShape"></shape>
-        </section> *@
+        <div class="col-md-4">
+            @await RenderSectionAsync("LargeTopLeftColumn", false)
+        </div>
+        <div class="col-md-4">
+            @await RenderSectionAsync("TopCenterColumn", false)
+
+        </div> 
+        <div class="col-md-4">
+            @await RenderSectionAsync("TopRightColumn", false)
+        </div>
+       
     </section>
 
 
